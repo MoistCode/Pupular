@@ -1,18 +1,35 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import Comment from './Comment';
+import CommentLike from './CommentLike';
+
+import Review from './Review';
+import ReviewLike from './ReviewLike';
 
 @Entity()
-export class User {
+export default class User {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @Column()
+  username: string;
 
-    @Column()
-    firstName: string;
+  @Column()
+  userIcon: string;
 
-    @Column()
-    lastName: string;
+  @OneToMany(() => Review, (review) => review.user)
+  reviews: Review[];
 
-    @Column()
-    age: number;
+  @OneToMany(() => ReviewLike, (reviewLike) => reviewLike.user)
+  reviewLikes: ReviewLike[];
 
+  @OneToMany(() => Comment, (comment) => comment.user)
+  comments: Comment[];
+
+  @OneToMany(() => CommentLike, (commentLike) => commentLike.user)
+  commentLikes: CommentLike[];
 }

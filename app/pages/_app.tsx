@@ -12,7 +12,7 @@ type Props = {
 
 export default function App({ Component, pageProps }: Props) {
   const apolloClient = useApollo(pageProps.initialApolloState);
-
+  console.log(pageProps);
   return (
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />

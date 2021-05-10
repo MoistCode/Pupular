@@ -8,6 +8,8 @@
       "typescript": "3.3.3333"
    },
    "dependencies": {
+      "dotenv": "^8.6.0",
+      "faker": "^5.5.3",
       "mysql": "^2.14.1",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.32"
