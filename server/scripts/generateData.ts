@@ -25,5 +25,6 @@ export default async function generateData(connection) {
     console.error(e);
   }
 
+  // eslint-disable-next-line no-console
   console.log(await connection.manager.find(User));
 }
